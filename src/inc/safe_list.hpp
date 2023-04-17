@@ -920,10 +920,14 @@ namespace mjx {
             if (_Mystorage._Size > 1) { // must contains at least 2 nodes
                 _Node_t* _Head = _Mystorage._Head;
                 _Node_t* _Tail = _Mystorage._Tail;
-                while (_Head != _Tail && _Head->_Next != _Tail) {
+                while (_Head != _Tail) {
                     ::std::swap(_Head->_Value, _Tail->_Value);
                     _Head = _Head->_Next;
                     _Tail = _Tail->_Prev;
+                    if (_Head->_Next == _Tail) { // reverse two middle nodes
+                        ::std::swap(_Head->_Value, _Tail->_Value);
+                        break;
+                    }
                 }
             }
         }
