@@ -6,8 +6,6 @@
 #include <safe_list.hpp>
 #include <gtest/gtest.h>
 
-#pragma comment(lib, R"(D:\Github\safe_list\src\test\thirdparty\GoogleTest\bin\x64\Debug\gtest.lib)")
-
 namespace tests {
     using ::mjx::safe_list;
 
