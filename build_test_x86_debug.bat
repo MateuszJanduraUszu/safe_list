@@ -1,0 +1,8 @@
+:: build_test_x86_debug.bat
+
+:: Copyright (c) Mateusz Jandura. All rights reserved.
+:: SPDX-License-Identifier: Apache-2.0
+
+mkdir build
+cd build
+cmake -A Win32 -DCMAKE_BUILD_TYPE=Debug -G "Visual Studio 17 2022" ..
