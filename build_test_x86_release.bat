@@ -1,4 +1,4 @@
-:: build_test_x64_release.bat
+:: build_test_x86_release.bat
 
 :: Copyright (c) Mateusz Jandura. All rights reserved.
 :: SPDX-License-Identifier: Apache-2.0
