@@ -6,6 +6,8 @@
 #include <safe_list.hpp>
 #include <gtest/gtest.h>
 
+#pragma comment(lib, R"(D:\Github\safe_list\src\test\thirdparty\GoogleTest\bin\x64\Debug\gtest.lib)")
+
 namespace tests {
     using ::mjx::safe_list;
 
@@ -272,6 +274,17 @@ namespace tests {
             GTEST_ASSERT_TRUE(_List.resize(_Expected_size));
             GTEST_EXPECT_TRUE(_List.size() == _Expected_size);
             GTEST_EXPECT_TRUE(_Compare_arrays(_List.begin(), _List.end(), _Expected));
+        }
+
+        TEST(modifiers, swap) {
+            constexpr int _Reversed[_Sample_data::_Size] = {
+                915, 6722, 5621, 251, 2551, 5156, 16232, 25, 515, 251
+            };
+            safe_list<int> _Left(_Sample_data::_Init_list());
+            safe_list<int> _Right(::std::initializer_list<int>(_Reversed, _Reversed + _Sample_data::_Size));
+            _Left.swap(_Right);
+            GTEST_EXPECT_TRUE(_Compare_arrays(_Left.begin(), _Left.end(), _Reversed));
+            GTEST_EXPECT_TRUE(_Compare_arrays(_Right.begin(), _Right.end(), _Sample_data::_Array));
         }
     } // namespace modifiers
 

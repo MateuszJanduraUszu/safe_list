@@ -384,8 +384,8 @@ namespace mjx {
             (void) resize(_Count);
         }
 
-        explicit safe_list(const size_type _Count, const value_type& _Value) noexcept(
-            _Traits::_Is_nothrow_copy_constructible) : _Mystorage() {
+        explicit safe_list(const size_type _Count,
+            const value_type& _Value) noexcept(_Traits::_Is_nothrow_copy_constructible) : _Mystorage() {
             (void) resize(_Count, _Value);
         }
 
